@@ -1,0 +1,87 @@
+import java.util.Scanner;
+import java.io.*;
+public class ImageFileUtilities {
+  
+  
+  public static Image read(String filename) throws IOException{
+    Scanner sc = new Scanner(new File(filename));
+    //Scanner s = new Scanner(System.in);
+    int[][] values;
+    String type = sc.nextLine(); //to hold of P2 and P3 types
+    String temporary;
+    //first we take care of comments with hashtags. Knowing there are atleast one comment 
+    String metadata;
+    
+    while(sc.hasNext("#")){
+      temporary = sc.nextLine();
+      metadata = metadata + temporary;
+   
+    }
+    //take width and hieght of picture
+    int width = sc.nextInt();
+    int height = sc.nextInt();
+    Pixel[][] picture = new Pixel[height][width];
+    
+    //read depending on whether image is P2 or P3  
+    if(type.charAt(1)=='2'){
+      //if it's P2 therefore grey method
+      for(int i=0; i<height ; i++){
+        for(int j=0; j<width ; j++){
+          int intensity = sc.nextInt;
+          picture[i][j].red = intensity;
+          picture[i][j].blue = intensity;
+          picture[i][j].green = intensity;
+        
+        }
+      }
+    }
+    if(type.charAt(1)=='3'){
+      //if it's P3 therefore each pixel has triplets
+      for(int i=0; i<height ; i++){
+        for(int j=0; j<width ; j++){
+          picture[i][j].red = sc.nextInt;
+          picture[i][j].blue = sc.nextInt;
+          picture[i][j].green = sc.nextInt;
+        
+        }
+      }
+    }
+    Image image = new Image(metadata, 255, picture);
+   
+    sc.close();
+    return image;
+  }
+  /*2. Write a static method writePnm which takes as input an Image and a String filename and returns
+void. This method should produce a pnm file (P3 format) based on the contents of the Image provided.
+Page 5
+3. Write a static method writePgm which takes as input an Image and a String filename and returns
+void. This method should produce a pgm file (P2 format) based on the contents of the Image provided.
+Be sure to convert the pixels to grey scale before you write this new file. */
+  //this methods makes a p3 file
+  public static void writePnm(Image picture, String filename) throws IOException{
+    FileWriter fw = new FileWriter(filename); 
+    BufferedWriter bw = new BufferedWriter(fw);
+    
+    bw.write("P3 \n");
+    int height = values.length;
+    int width = values[0].length;
+    bw.write(width + " " + height + "\n");
+    for(int i=0; i<values.length; i++){
+      for(int j=0; j<values[i].length; j++){
+        bw.write(values[i][j]+" " );
+      }
+      bw.write("\n");
+    }
+    
+    bw.close();
+    fw.close();
+  }
+  
+  
+  public static void main(String[] args) { 
+    
+  }
+  
+  /* ADD YOUR CODE HERE */
+  
+}

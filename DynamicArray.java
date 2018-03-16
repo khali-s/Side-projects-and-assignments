@@ -1,0 +1,34 @@
+public class DynamicArray{
+  //number of elements in the array
+  private int size;
+  private int[] array;
+  
+  public DynamicArray(){
+    this.array  =new int[10];
+    this.size=0;
+  
+  }
+  public DynamicArray(int init){
+  this.array = new int[init];
+  this.size = 0;
+  
+  }
+  //resize method.
+  //will be called, when size=array.length
+  private void resize(){
+    //double el size
+    int[] updatedArray = new int[this.array.length*2];
+    for(int i = 0; i<this.array.length; i++){
+      updatedArray[i] = array[i];
+    }
+     
+    this.array = updatedArray;
+  
+  
+ }
+
+  
+  
+}  
+
+

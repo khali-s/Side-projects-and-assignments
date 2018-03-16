@@ -1,0 +1,48 @@
+
+public class Comp202Photoshop {
+  //make sure array has a correct size
+  
+ public static void main(String[] args) {
+    if(args.length<4){
+      throw new InputMismatchException("Invalid Statement");
+    }
+    //store picture
+  try{
+   Image imput = new Image(ImageFileUtilities.read(args[0]));
+ 
+   
+   if(args[3].charAt(2)==h){
+     input.flip(true);
+   
+   }
+   if(args[3].charAt(2)==v){
+     input.flip(false);
+   
+   }
+   if(args[3].charAt(2)==s){
+     input.toGrey();
+   
+   }
+   if(args[3].charAt(2)==r){
+     input.crop(args[4],args[5],args[6],args[7]);
+   
+   
+   
+   }
+     //if out put is pgm
+   if(args[2].charAt(1)==g){
+     ImageFileUtilities.writePgm(input,args[1]);
+   
+   }
+   else if(args[2].charAt(1)==n){
+     ImageFileUtilities.writePnm(input,args[1]);
+   
+   }
+   
+   }catch(IOException e){
+      e.printStackTrace();
+    } 
+  }
+  
+  
+}

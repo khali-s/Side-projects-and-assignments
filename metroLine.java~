@@ -1,0 +1,9 @@
+public class metroLine{ 
+//this is the linked list object that has the first and last station implemented as head and tail
+//String lineColor;
+metroStation head = new metroStation();
+metroStation tail = new metroStation();
+int size=0; //initialize it to 0
+
+
+}

@@ -1,0 +1,13 @@
+public class metroTester{
+
+
+  public static void main(String[] args){
+  
+  metroStation a = new metroStation("atwater");
+  
+  
+  }
+
+
+
+}

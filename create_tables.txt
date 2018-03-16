@@ -1,0 +1,166 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\csgray\c0;\csgray\c100000;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb3 \CocoaLigature0 CREATE TABLE Shoe(\
+Shoe_id SERIAL,\
+brand varchar(50) NOT NULL, \
+name varchar(50) NOT NULL , \
+color varchar(50), \
+size INT, \
+gender varchar(50), \
+shoe_type varchar(50),\
+price int CHECK(shoe > 0),\
+Quantity INT,\
+description varchar(100), \
+PRIMARY KEY (shoe_id)\
+);\
+\
+CREATE TABLE supplier(\
+supplier_id SERIAL, \
+name varchar(50), \
+PRIMARY KEY (supplier_id)\
+);\
+\
+CREATE TABLE employee(\
+employee_id SERIAL, \
+name varchar(50), \
+department varchar(50), \
+role varchar(50), \
+PRIMARY KEY (employee_id)\
+);\
+\
+CREATE TABLE users(\
+user_id SERIAL, \
+name varchar(50), \
+email varchar(50), \
+phone_number varchar(50), \
+address varchar(60), \
+City varchar(50),\
+Country varchar(50),\
+password varchar(50),\
+PRIMARY KEY (user_id) \
+);\
+\
+CREATE TABLE CreditCardInfo(\
+user_id INT NOT NULL,\
+card_number varchar(50),  \
+security_number INT, \
+expiration_date DATE,\
+FOREIGN KEY (user_id) REFERENCES users,\
+PRIMARY KEY(card_number)\
+);\
+\
+CREATE TABLE Stock(\
+stock_Id INT NOT NULL, \
+Supplier_id INT,\
+Date DATE,\
+PRIMARY KEY(stock_id)\
+);\
+\
+CREATE TABLE sales( \
+Sales_id SERIAL,\
+Shoe_id INT,\
+percentage INT, \
+start_date DATE, \
+end_date DATE CHECK(end_date > start_date),\
+PRIMARY KEY(sales_id)\
+);\
+\
+CREATE TABLE shoe_order(\
+order_Id SERIAL, \
+Shoe_id INT,\
+dates DATE, \
+order_time TIME,\
+total_price DECIMAL(6,2),\
+PRIMARY KEY(order_id),\
+FOREIGN KEY (shoe_id) REFERENCES shoe\
+);\
+INSERT INTO SOLDA(shoe_id, percentage, start_date, end_date) VALUES (7, 21, '2015-01-01', '2016-01-01');
+\
+CREATE TABLE Complaints( \
+complaint_id SERIAL, \
+problem_type varchar(50), \
+User_id INT, \
+order_id INT, \
+comment varchar(50), \
+date DATE, \
+FOREIGN KEY (user_id) REFERENCES users,\
+FOREIGN KEY (order_Id) REFERENCES shoe_order,\
+PRIMARY KEY(complaint_id)\
+);\
+\
+CREATE TABLE StockContainsShoes(\
+stock_Id INT, \
+Shoe_id INT,\
+quantity INT,\
+FOREIGN KEY (stock_id) REFERENCES stock, \
+FOREIGN KEY (shoe_id) REFERENCES shoe,\
+PRIMARY KEY (stock_id, shoe_id)\
+);\
+\
+CREATE TABLE Employee_Order_From_Supplier(\
+supplier_id INT, \
+employee_Id INT, \
+stock_id INT, \
+order_date DATE, \
+total_cost INT,\
+FOREIGN KEY (supplier_id) REFERENCES Supplier,\
+FOREIGN KEY (employee_Id) REFERENCES Employee,\
+FOREIGN KEY (stock_Id) REFERENCES Stock,\
+PRIMARY KEY(supplier_id, employee_id, stock_id )\
+); \
+\
+CREATE TABLE Employee_Handles_Shoe_Order(\
+employee_Id INT, \
+order_Id INT, \
+stock_id INT, \
+shipment_company varchar(50), \
+date_order DATE, \
+tracking_number varchar(50),\
+FOREIGN KEY (employee_Id) REFERENCES Employee, \
+FOREIGN KEY (order_Id) REFERENCES Shoe_order, \
+FOREIGN KEY (stock_Id) REFERENCES Stock,\
+PRIMARY KEY(employee_id, order_id, stock_id )\
+);\
+\
+CREATE TABLE Employee_Handles_Complaints(\
+complaint_id INT,  \
+employee_id INT, \
+resolution varchar(50), \
+comment varchar(50), \
+date_handled DATE,\
+FOREIGN KEY(employee_Id) REFERENCES Employee, \
+FOREIGN KEY(complaint_id) REFERENCES complaints,\
+PRIMARY KEY(complaint_id, employee_id )\
+);\
+ \
+\
+CREATE TABLE user_makes_order(\
+user_id INT, \
+order_Id INT, \
+FOREIGN KEY(user_id) REFERENCES users, \
+FOREIGN KEY(order_Id) REFERENCES shoe_order,\
+PRIMARY KEY(user_id, order_id)\
+);\
+\
+CREATE TABLE Shoe_Order_Has_Shoe(\
+order_Id INT, \
+Shoe_id INT,\
+Quantity INT,\
+FOREIGN KEY (order_Id) REFERENCES shoe_order, \
+FOREIGN KEY (shoe_id) REFERENCES shoe,\
+PRIMARY KEY(order_id, shoe_id)\
+);}
+
+
+SELECT name FROM users u, user_makes_order o WHERE o.user_id = u.user_id;
+
+
+
+
+
+

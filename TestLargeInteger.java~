@@ -1,0 +1,31 @@
+
+
+
+  public class TestLargeInteger {
+    public static void main( String args[] ) {
+        /* TEST YOUR METHODS BY ADDING CODE HERE */
+        /* THIS CODE IS NOT GOING TO BE GRADED. IT'S JUST FOR YOU TO TEST YOUR PROGRAM */
+
+      
+           /*For example */
+      
+        LargeInteger a = new LargeInteger( "1234" );
+        LargeInteger b = new LargeInteger( "891" ); 
+        //System.out.println(a + " + " + b + " = " + a.add( b ) );
+        //System.out.println(b + " - " + a + " = " + b.subtract( a ) );
+        System.out.println(b + " * " + a + " = " + b.recursiveFastMultiplication( a ) );
+        //System.out.println(b + " * " + a + " = " + b.iterativeAddition( a ) );
+        //System.out.println(b + " * " + a + " = " + b.standardMultiplication( a ) );
+        
+  
+  
+  
+  
+  }
+
+
+
+
+
+
+}

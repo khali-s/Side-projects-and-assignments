@@ -1,0 +1,14 @@
+/**
+ * Auto Generated Java Class.
+ */
+public class Resr {
+  
+  final int[] x = {1,2,3,4,5};
+
+  public static void main(String[] args) { 
+    
+  }
+  
+  /* ADD YOUR CODE HERE */
+  
+}

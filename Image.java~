@@ -1,0 +1,62 @@
+public class Image{
+/*Question 2: Image Class (40 points)
+Define an Image class which is meant to represent the abstract notion of an Image.
+An Image consists of several private properties:
+1. A String metadata which can store information about the image in a text format. For example, one
+might include in metadata the author’s name, and the time at which the image was created.
+2. An int maxRange which stores the upper bound of the values of the pixels. You can assume (that is,
+no check is required) maxRange is greater than or equal to all of the values in the pixel array.
+3. A Pixel[][] data which stores the values of the various pixels. The first “row” of the array (i.e. the
+first array inside the 2D array) stores the first row of the image pixel values. This means that the
+length of this array is the height of the image. The length of each ‘sub-array’ is the width of the
+image. */
+  
+private String metadata;
+private int maxRange;
+private Pixel[][] picture;
+
+/*. A constructor that takes values for all of the attributes as input in the order in which they are listed
+above. Be sure to create and store a copy of the input Pixel[][] array (and copy each Pixel in the
+array as well). Your constructor should throw an IllegalArgumentException if the maxRange value
+is negative. */
+
+public Image(String data, int range, Pixel[][] pic){
+  this.metadata = data;
+  this.maxRange = range;
+  //intialise pixel array assuming rectangular picture
+  this.Pixel[][] = new Pixel[pic.length][pic[0].length];
+  for(int i=0; i<this.Pixel.length; i++){
+    for(int j=0;j<this.Pixel[0].length;j++){
+      this.Pixel[i][j].Pixel(pic[i][j].getRed(),pic[i][j].getGreen(),pic.getBlue())
+    }
+  }
+
+
+public Vector(double[] coordinates){
+    //coords should be a copy of coordinates
+    //this.coords = coordinates; doesn't make a copy
+    this.coords = new double[coordinates.length];
+    for(int i=0; i<this.coords.length; i++){
+      this.coords[i] = coordinates[i];
+    }
+    this.computeMagnitude();
+  }
+
+
+
+
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

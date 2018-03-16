@@ -1,0 +1,32 @@
+public class GreetList implements Iterable<HelloWorldAnonymousClass> {
+
+
+  private List<HelloWorldAnonymousClass> iterGreet = new ArrayList<HelloWorldAnonymousClass>(){{
+  
+    
+    add(new HelloWorldAnonymousClass());
+    add(new HelloWorldAnonymousClass());
+    add(new HelloWorldAnonymousClass());
+    add(new HelloWorldAnonymousClass());
+    add(new HelloWorldAnonymousClass());
+    add(new HelloWorldAnonymousClass());
+    
+    
+    
+
+  
+  
+  }};
+  
+  
+  public Iterator<HelloWorldAnonymousClass> iterator() {
+    Iterator<HelloWorldAnonymousClass> iter = iterGreet;
+      return iter; 
+  
+  }
+ 
+
+
+
+
+}

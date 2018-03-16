@@ -1,0 +1,24 @@
+public class metroStation{
+metroStation prev = new metroStation();
+metroStation next new metroStation();
+String name;
+
+
+public metroStation(String pName){
+  
+  this.name = Pname;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+}

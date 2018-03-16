@@ -1,0 +1,49 @@
+/**
+ * Auto Generated Java Class.
+ */
+public class Shift {
+  
+   public static String[] shift(char availableLetters[]) {
+       //my code is here
+     int arraySize = 0;
+     for( int i = 0 ; i<availableLetters.length; i++){
+     arraySize = arraySize + factorial(availableLetters.length);
+     }
+       availableLetters.length + 1
+       String[] d= new String(arraySize);
+       //each permutation
+       int x = availableLetters.length;
+       if (availableLetters.length==1){
+         d[0]= availableLetters[];
+         return d;
+       } 
+        for(int i=0; i<x; i++){
+         char[] s = new char[availableLetters.length-1];
+         for(int j = 0; j<x-1;j++){
+           if (j!=i) {
+           s[j] = availableLetters[j] ;
+           }
+          d[j] = shift(s);
+         
+           
+         }
+         
+         
+         
+       }
+   }
+        public static int factorial(int n) {
+        int fact = 1; // this  will be the result
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+  public static void main(String[] args) { 
+    
+  }
+  
+  
+  /* ADD YOUR CODE HERE */
+  
+}

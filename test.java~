@@ -1,0 +1,14 @@
+public class test{
+
+
+
+
+    public static void main(String args[]) {
+        HelloWorldAnonymousClasses myApp =
+            new HelloWorldAnonymousClasses();
+           myApp.sayHello();
+    }            
+}
+
+
+}
